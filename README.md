@@ -2,7 +2,6 @@
 
 SOLID principles...
 
-OAuth2 by
 
 ### Install
 
