@@ -1,15 +1,15 @@
 # modules-laravel-api
 
-# Install
+## Install
 
-composer require pablolovera/modules-laravel-api
+`composer require pablolovera/modules-laravel-api`
 
-## Add ServiceProvider on config/app.php
+### Add ServiceProvider on config/app.php
 
-PabloLovera\ModulesLaravel\Providers\ModulesServiceProvider::class,
+`PabloLovera\ModulesLaravel\Providers\ModulesServiceProvider::class,`
 
-## Publish config
+### Publish config
 
-php artisan vendor:publish --provider="PabloLovera\ModulesLaravel\Providers\ModulesServiceProvider"
+`php artisan vendor:publish --provider="PabloLovera\ModulesLaravel\Providers\ModulesServiceProvider"`
 
 # Licence
