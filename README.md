@@ -119,7 +119,7 @@ So... created in `app/Modules/<module-name>/Providers/<service-provider-name>`
 
 
 
-##### Create Service Provider for existing module
+##### Create Transformer for existing module
 ```
 module:make-transformer <transformer-name> <module-name>
 ```
