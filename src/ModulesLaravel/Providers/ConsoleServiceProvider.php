@@ -48,6 +48,7 @@ class ConsoleServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([__DIR__.'/../../resources/config/module.php' => config_path('module.php')], 'config');
+        $this->publishes([__DIR__.'/../../resources/config/oauth2.php' => config_path('oauth2.php')], 'config');
     }
 
     /**
