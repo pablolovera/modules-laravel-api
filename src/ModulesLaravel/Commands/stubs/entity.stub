@@ -1,0 +1,12 @@
+<?php
+
+namespace App\Modules\*MODULENAME*\Entities;
+
+use App\Modules\*MODULENAME*\Contracts\Entities\*NAME*EntityContract;
+use App\Core\Entities\BaseEntity;
+
+class *NAME*Entity extends BaseEntity implements *NAME*EntityContract
+{
+    protected $table        = '*TABLENAME*';
+    protected $fillable     = [''];
+}

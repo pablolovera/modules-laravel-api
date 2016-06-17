@@ -1,0 +1,50 @@
+<?php
+
+namespace App\Modules\*MODULENAME*\Http\Controllers;
+
+use App\Core\Http\Controllers\Controller;
+use App\Modules\*MODULENAME*\Contracts\Services\*NAME*ServiceContract;
+use App\Modules\*MODULENAME*\Transformers\*NAME*Transformer;
+use App\Modules\*MODULENAME*\Http\Requests\*NAME*Request;
+use Cyvelnet\Laravel5Fractal\Facades\Fractal;
+
+class *NAME*Controller extends Controller
+{
+    protected $service;
+    protected $transformer;
+
+    public function __construct(*NAME*ServiceContract $service, *NAME*Transformer $transformer)
+    {
+        $this->service      = $service;
+        $this->transformer  = $transformer;
+    }
+
+    public function index()
+    {
+        if ($dados = $this->service->all())
+            return Fractal::collection($dados, $this->transformer)->responseJson();
+    }
+
+    public function show($id)
+    {
+        if ($dados = $this->service->show($id))
+            return Fractal::item($dados, $this->transformer)->responseJson();
+    }
+
+    public function store(*NAME*Request $request)
+    {
+        if ($dados = $this->service->store($request))
+            return Fractal::item($dados, $this->transformer)->responseJson();
+    }
+
+    public function update(*NAME*Request $request, $id)
+    {
+        if ($dados = $this->service->update($request, $id))
+            return Fractal::item($dados, $this->transformer)->responseJson();
+    }
+
+    public function destroy($id)
+    {
+        return $this->service->destroy($id);
+    }
+}

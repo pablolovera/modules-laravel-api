@@ -1,0 +1,41 @@
+<?php
+
+namespace App\Core\Http;
+
+use Illuminate\Foundation\Http\Kernel as HttpKernel;
+
+class Kernel extends HttpKernel
+{
+    /**
+     * The application's global HTTP middleware stack.
+     *
+     * @var array
+     */
+    protected $middleware = [
+        \Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,
+        \App\Core\Http\Middleware\Cors::class,
+        \LucaDegasperi\OAuth2Server\Middleware\OAuthExceptionHandlerMiddleware::class,
+    ];
+
+    /**
+     * The application's route middleware.
+     *
+     * @var array
+     */
+    protected $routeMiddleware = [
+        'auth' => \App\Core\Http\Middleware\Authenticate::class,
+        'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
+        'guest' => \App\Core\Http\Middleware\RedirectIfAuthenticated::class,
+        'csrf' => \App\Core\Http\Middleware\VerifyCsrfToken::class,
+
+        'encrypt.cookies' => \App\Core\Http\Middleware\EncryptCookies::class,
+        'add.queued.cookies.to.response' => \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
+        'start.session' => \Illuminate\Session\Middleware\StartSession::class,
+        'share.errors.from.session' => \Illuminate\View\Middleware\ShareErrorsFromSession::class,
+
+        'oauth' => \LucaDegasperi\OAuth2Server\Middleware\OAuthMiddleware::class,
+        'oauth-user' => \LucaDegasperi\OAuth2Server\Middleware\OAuthUserOwnerMiddleware::class,
+        'oauth-client' => \LucaDegasperi\OAuth2Server\Middleware\OAuthClientOwnerMiddleware::class,
+        'check-authorization-params' => \LucaDegasperi\OAuth2Server\Middleware\CheckAuthCodeRequestMiddleware::class,
+    ];
+}

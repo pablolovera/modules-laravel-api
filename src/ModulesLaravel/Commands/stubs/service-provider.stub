@@ -1,0 +1,50 @@
+<?php
+
+namespace App\Modules\*MODULENAME*\Providers;
+
+use App\Modules\*MODULENAME*\Contracts\Entities\*MODULENAME*EntityContract;
+use App\Modules\*MODULENAME*\Contracts\Repositories\*MODULENAME*RepositoryContract;
+use App\Modules\*MODULENAME*\Contracts\Services\*MODULENAME*ServiceContract;
+use App\Modules\*MODULENAME*\Entities\*MODULENAME*Entity;
+use App\Modules\*MODULENAME*\Repositories\*MODULENAME*Repository;
+use App\Modules\*MODULENAME*\Services\*MODULENAME*Service;
+use Illuminate\Routing\Router;
+use Illuminate\Support\ServiceProvider;
+
+class *NAME*ServiceProvider extends ServiceProvider
+{
+
+    public function boot()
+    {
+        $this->registerRoutes($this->app['router']);
+    }
+
+    /**
+     * Define the routes for the application.
+     *
+     * @param  \Illuminate\Routing\Router  $router
+     * @return void
+     */
+    public function registerRoutes(Router $router)
+    {
+        $router->group([
+            'prefix'        => '*ROUTEPREFIX*',
+            'middleware'    => 'oauth',
+            'namespace'     => 'App\Modules\*MODULENAME*\Http\Controllers'],
+            function ($router) {
+                require app_path('Modules/*MODULENAME*/Http/routes.php');
+        });
+    }
+
+    /**
+     * Register the service provider.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        $this->app->bind(*MODULENAME*EntityContract::class       , *MODULENAME*Entity::class);
+        $this->app->bind(*MODULENAME*RepositoryContract::class   , *MODULENAME*Repository::class);
+        $this->app->bind(*MODULENAME*ServiceContract::class      , *MODULENAME*Service::class);
+    }
+}

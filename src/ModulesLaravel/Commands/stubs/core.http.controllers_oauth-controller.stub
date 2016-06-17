@@ -1,0 +1,47 @@
+<?php
+
+namespace App\Core\Http\Controllers;
+
+use App\Modules\Usuario\Entities\UsuarioEntity;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+
+class OauthController extends Controller
+{
+    /**
+     * @param $email
+     * @param $password
+     * @return bool
+     */
+    public function logar($email, $password)
+    {
+        $cred = ['email' => $email, 'password' => $password];
+
+        $validacao = Validator::make($cred, [
+            'email'     => 'required|email',
+            'password'  => 'required|string'
+        ]);
+
+        if ($validacao->fails()) :
+            return false;
+        else :
+
+            $usuario = UsuarioEntity::where('email', '=', $email)->first();
+
+            if ($usuario) :
+
+                if (Hash::check($password, $usuario->password)) :
+
+                    return $usuario;
+
+                else :
+                    return false;
+                endif;
+
+            else :
+                return false;
+            endif;
+
+        endif;
+    }
+}

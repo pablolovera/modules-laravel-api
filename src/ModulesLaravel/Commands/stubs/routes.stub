@@ -1,0 +1,16 @@
+<?php
+
+/*
+|--------------------------------------------------------------------------
+| Module *MODULENAME* Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register all of the routes for module.
+|
+*/
+
+Route::get(''           , '*MODULENAME*Controller@index');
+Route::get('{id}'       , '*MODULENAME*Controller@show@{id}');
+Route::post(''          , '*MODULENAME*Controller@store');
+Route::put('{id}'       , '*MODULENAME*Controller@update@{id}');
+Route::delete('{id}'    , '*MODULENAME*Controller@destroy@{id}');

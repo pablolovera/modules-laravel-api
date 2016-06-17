@@ -1,0 +1,15 @@
+<?php
+
+namespace App\Modules\*MODULENAME*\Repositories;
+
+use App\Core\Repositories\BaseRepository;
+use App\Modules\*MODULENAME*\Contracts\Entities\*NAME*EntityContract;
+use App\Modules\*MODULENAME*\Contracts\Repositories\*NAME*RepositoryContract;
+
+class *NAME*Repository extends BaseRepository implements *NAME*RepositoryContract
+{
+    public function __construct(*NAME*EntityContract $model)
+    {
+        $this->entity = $model;
+    }
+}
