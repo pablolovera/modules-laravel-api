@@ -1,6 +1,9 @@
 {
   "name": "pablolovera/modules-laravel-api",
-  "description": "Modules for API Laravel 5",
+  "type": "library",
+  "description": "Modules for API's RESTFul based on laravel 5.*",
+  "keywords": ["laravel","modules", "restful api", "laravel 5 api rest"],
+  "homepage": "https://github.com/pablolovera/modules-laravel-api",
   "license": "MIT",
   "authors": [
     {

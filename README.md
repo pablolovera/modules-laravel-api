@@ -1,5 +1,7 @@
 ## Modules for API's RESTFul based on laravel 5.*
 
+SOLID principles...
+
 ### Install
 
 ```
