@@ -39,7 +39,6 @@ class ConsoleServiceProvider extends ServiceProvider
         'ModuleServiceProvider',
         'ModuleTransformer',
         'ModuleMigration',
-//        'ModuleMigrationReset',
         'ModuleMigrate',
         'ModuleSeeder',
         'ModuleSeed'
