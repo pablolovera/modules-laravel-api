@@ -20,7 +20,7 @@ class ModuleEntityContract extends Command
      *
      * @var string
      */
-    protected $description = 'Make a new Entity Contract extending of Core module';
+    protected $description = 'Create a new Entity Contract extending of Core module';
 
     /**
      * The stub name

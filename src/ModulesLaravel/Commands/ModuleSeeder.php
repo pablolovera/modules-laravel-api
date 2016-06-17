@@ -20,7 +20,7 @@ class ModuleSeeder extends Command
      *
      * @var string
      */
-    protected $description = 'Make a new Seed for a module';
+    protected $description = 'Create a new Seed for a module';
 
     /**
      * The stub name

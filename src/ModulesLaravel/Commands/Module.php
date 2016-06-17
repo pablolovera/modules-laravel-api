@@ -23,7 +23,7 @@ class Module extends Command
      *
      * @var string
      */
-    protected $description = 'Make a new module structure basic with Controller, Entity, Service, Provider, Request, Repository... All extending of Core module';
+    protected $description = 'Create a new module structure basic with Controller, Entity, Service, Provider, Request, Repository... All extending of Core module';
 
     /**
      * Create a new command instance.

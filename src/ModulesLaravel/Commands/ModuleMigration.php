@@ -20,7 +20,7 @@ class ModuleMigration extends Command
      *
      * @var string
      */
-    protected $description = 'Make a new Migration for module';
+    protected $description = 'Create a new Migration for module';
 
     /**
      * The stub name

@@ -20,7 +20,7 @@ class ModuleTransformer extends Command
      *
      * @var string
      */
-    protected $description = 'Make a new Transformer extending of Abstract Transformer';
+    protected $description = 'Create a new Transformer extending of Abstract Transformer';
 
     /**
      * The stub name

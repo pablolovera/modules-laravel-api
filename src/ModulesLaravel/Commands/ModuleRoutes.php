@@ -20,7 +20,7 @@ class ModuleRoutes extends Command
      *
      * @var string
      */
-    protected $description = 'Make a new Router for module';
+    protected $description = 'Create a new Router for module';
 
     /**
      * The stub name

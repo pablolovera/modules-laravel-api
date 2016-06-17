@@ -20,7 +20,7 @@ class ModuleServiceProvider extends Command
      *
      * @var string
      */
-    protected $description = 'Make a new Service Provider extending of Core module';
+    protected $description = 'Create a new Service Provider extending of Core module';
 
     /**
      * The stub name
