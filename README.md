@@ -2,6 +2,8 @@
 
 SOLID principles...
 
+OAuth2 by
+
 ### Install
 
 ```
@@ -12,6 +14,28 @@ composer require pablolovera/modules-laravel-api
 
 ```
 PabloLovera\ModulesLaravel\Providers\ModulesServiceProvider::class,
+```
+
+For OAuth2
+```
+LucaDegasperi\OAuth2Server\Storage\FluentStorageServiceProvider::class,
+LucaDegasperi\OAuth2Server\OAuth2ServerServiceProvider::class,
+```
+
+For Fractal
+```
+Cyvelnet\Laravel5Fractal\Laravel5FractalServiceProvider::class,
+```
+
+#### Add the Facade in `aliases` array
+For OAuth2
+```
+'Authorizer' => LucaDegasperi\OAuth2Server\Facades\Authorizer::class,
+```
+
+For Fractal
+```
+'Fractal' => Cyvelnet\Laravel5Fractal\Facades\Fractal::class
 ```
 
 #### Publish config
@@ -128,6 +152,12 @@ So... created in `app/Modules/<module-name>/Providers/<service-provider-name>`
 module:make-transformer <transformer-name> <module-name>
 ```
 So... created in `app/Modules/<module-name>/Transformers/<transformer-name>`
+
+### The following packages are also used
+
+[lucadegasperi/oauth2-server-laravel](https://github.com/lucadegasperi/oauth2-server-laravel)
+[Cyvelnet/laravel5-fractal](https://github.com/Cyvelnet/laravel5-fractal)
+
 
 ### Licence
 

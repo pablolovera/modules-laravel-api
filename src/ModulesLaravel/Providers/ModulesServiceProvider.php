@@ -49,6 +49,7 @@ class ModulesServiceProvider extends ServiceProvider
     {
         $this->publishes([__DIR__.'/../../resources/config/module.php' => config_path('module.php')], 'config');
         $this->publishes([__DIR__.'/../../resources/config/oauth2.php' => config_path('oauth2.php')], 'config');
+        $this->publishes([__DIR__.'/../../resources/config/fractal.php' => config_path('fractal.php')], 'config');
     }
 
     /**

@@ -13,7 +13,7 @@ class OauthController extends Controller
      * @param $password
      * @return bool
      */
-    public function logar($email, $password)
+    public function login($email, $password)
     {
         $cred = ['email' => $email, 'password' => $password];
 

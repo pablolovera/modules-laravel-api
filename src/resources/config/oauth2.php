@@ -34,7 +34,7 @@ return [
         ],
         'password' => [
             'class'             => '\League\OAuth2\Server\Grant\PasswordGrant',
-            'callback'          => '\App\Core\Http\Controllers\OauthController@logar',
+            'callback'          => '\App\Core\Http\Controllers\OauthController@login',
             'access_token_ttl'  => 3600000
         ],
     ],
