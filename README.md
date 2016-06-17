@@ -35,6 +35,8 @@ php artisan make:module <module-name>
 ```
 Then... see the directory `app/Modules/<module-name>`
 
+When a new module is created, you need add provider in `config/app.php`, like a `App\Modules\<module-name>\Providers\<module-name>ServiceProvider::class,`
+
 ### Commands available
 
 `php artisan ...`
