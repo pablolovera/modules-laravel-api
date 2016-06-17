@@ -13,6 +13,7 @@ trait CommandTrait
     {
         return Carbon::now()->format('Y_m_d_His') . '_';
     }
+
     /**
      * Create the directory
      *
