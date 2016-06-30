@@ -1,9 +1,7 @@
 <?php
 
-namespace App\Exceptions;
+namespace App\Core\Exceptions;
 
-use App\Traits\LogTrait;
-use Artesaos\Defender\Exceptions\ForbiddenException;
 use Exception;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;

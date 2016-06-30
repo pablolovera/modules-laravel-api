@@ -98,15 +98,22 @@ trait CommandTrait
      * @param $stubName
      * @return string
      */
-    public function handleStubName($stubName)
+    public function handleStubName($stubName, $allLower = false)
     {
         $name = explode('_', $stubName);
 
         $file = $this->getContextFileName($name[1]);
 
+        if ( $allLower )
+            $file = strtolower($file);
+
         $path = $name[0];
         $path = str_replace('.', ' ', $path);
-        $path = ucwords(strtolower($path));
+        $path = strtolower($path);
+
+        if ( ! $allLower)
+            $path = ucwords($path);
+
         $path = str_replace(' ', '/', $path);
 
         $object = new \StdClass();
@@ -168,5 +175,14 @@ trait CommandTrait
         $name = str_replace(' ', '', $name);
 
         return str_replace('*MIGRATIONNAME*', $name, $content);
+    }
+
+    /**
+     * @param $source
+     * @param null $target
+     */
+    public function backupFile($path, $name)
+    {
+        copy($path . '/' . $name, $path . '/' . $name . '.backup');
     }
 }

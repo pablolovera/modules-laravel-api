@@ -33,7 +33,8 @@ return [
             'access_token_ttl'  => 360000
         ],
         'password' => [
-            'class'             => '\League\OAuth2\Server\Grant\PasswordGrant',
+            'class'             => '\League\OAuth2\Server\Grant\PasswordGrant', // comment if bellow line is uncomented
+//            'class'             => '\App\Core\Services\OAuthPasswordGrant',   // uncomment to use base_64 cript.. when the request is auth/get_token
             'callback'          => '\App\Core\Http\Controllers\OauthController@login',
             'access_token_ttl'  => 3600000
         ],

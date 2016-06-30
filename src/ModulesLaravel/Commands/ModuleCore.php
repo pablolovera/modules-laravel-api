@@ -55,6 +55,8 @@ class ModuleCore extends Command
         'core.providers_route-service-provider',
         'core.repositories_base-repository',
         'core.services_base-service',
+        'core.services_o-auth-password-grant.stub',
+
     ];
     /**
      * Create a new command instance.
@@ -79,11 +81,11 @@ class ModuleCore extends Command
 
         foreach ($this->stubs as $stub) :
 
-            $content = $this->getContents($stub);
+            $content        = $this->getContents($stub);
 
-            $stubHandled = $this->handleStubName($stub);
+            $stubHandled    = $this->handleStubName($stub);
 
-            $toDirectory        = 'app/' . $stubHandled->path;
+            $toDirectory    = 'app/' . $stubHandled->path;
 
             $this->doDirectory($toDirectory);
 
@@ -92,5 +94,20 @@ class ModuleCore extends Command
         endforeach;
 
         $this->info('Your application has been received de Core module. Go work!');
+    }
+
+    public function handleBootstrapApp()
+    {
+        $this->backupFile('bootstrap', 'app.php');
+
+        $stub           = 'bootstrap_app';
+
+        $content        = $this->getContents($stub);
+
+        $stubHandled    = $this->handleStubName($stub, true);
+
+        $toDirectory    = $stubHandled->path;
+
+        $this->writeFileSimple($content, $toDirectory, $stubHandled->file);
     }
 }
