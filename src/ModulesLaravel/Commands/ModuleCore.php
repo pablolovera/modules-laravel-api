@@ -55,7 +55,7 @@ class ModuleCore extends Command
         'core.providers_route-service-provider',
         'core.repositories_base-repository',
         'core.services_base-service',
-        'core.services_o-auth-password-grant.stub',
+        'core.services_o-auth-password-grant',
 
     ];
     /**
@@ -113,6 +113,7 @@ class ModuleCore extends Command
 
     public function handleConfigApp()
     {
+        $this->backupFile('config', 'app.php');
 
         $content = $this->getConfigAppContents();
 
