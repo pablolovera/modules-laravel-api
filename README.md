@@ -15,17 +15,6 @@ composer require pablolovera/modules-laravel-api
 PabloLovera\ModulesLaravel\Providers\ModulesServiceProvider::class,
 ```
 
-For OAuth2
-```
-LucaDegasperi\OAuth2Server\Storage\FluentStorageServiceProvider::class,
-LucaDegasperi\OAuth2Server\OAuth2ServerServiceProvider::class,
-```
-
-For Fractal
-```
-Cyvelnet\Laravel5Fractal\Laravel5FractalServiceProvider::class,
-```
-
 #### Add the Facade in `aliases` array
 For OAuth2
 ```
