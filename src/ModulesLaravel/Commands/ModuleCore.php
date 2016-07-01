@@ -110,4 +110,52 @@ class ModuleCore extends Command
 
         $this->writeFileSimple($content, $toDirectory, $stubHandled->file);
     }
+
+    public function handleConfigApp()
+    {
+
+        $content = $this->getConfigAppContents();
+
+
+        $old = '
+        /*
+         * Application Service Providers...
+         */
+        App\Providers\AppServiceProvider::class,
+        App\Providers\AuthServiceProvider::class,
+        App\Providers\EventServiceProvider::class,
+        App\Providers\RouteServiceProvider::class,';
+
+
+        $new = '
+        /*
+         * Application Service Providers...
+         */
+        App\Core\Providers\AppServiceProvider::class,
+        App\Core\Providers\AuthServiceProvider::class,
+        App\Core\Providers\EventServiceProvider::class,
+        App\Core\Providers\RouteServiceProvider::class,
+
+        /*
+         * Packages Service Providers...
+         */
+        PabloLovera\ModulesLaravel\Providers\ModulesServiceProvider::class,
+        LucaDegasperi\OAuth2Server\Storage\FluentStorageServiceProvider::class,
+        LucaDegasperi\OAuth2Server\OAuth2ServerServiceProvider::class,
+        Cyvelnet\Laravel5Fractal\Laravel5FractalServiceProvider::class,
+
+        /*
+         * Modules Service Providers...
+         */';
+
+        $content = str_replace('PabloLovera\ModulesLaravel\Providers\ModulesServiceProvider::class,', '', $content);
+
+
+        $content = str_replace($old, $new, $content);
+
+
+        $toDirectory    = 'config';
+
+        $this->writeFileSimple($content, $toDirectory, 'app.php');
+    }
 }

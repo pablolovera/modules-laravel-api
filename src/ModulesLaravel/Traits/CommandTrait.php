@@ -40,6 +40,14 @@ trait CommandTrait
     }
 
     /**
+     * @return string
+     */
+    public function getConfigAppContents()
+    {
+        return file_get_contents('config/app.php');
+    }
+
+    /**
      * @param $dados
      * @param $toDirectory
      * @param $name
